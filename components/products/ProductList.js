@@ -7,7 +7,6 @@ import ProductCard from "./ProductCard";
 import useFilteredProductsQuery from "@/hooks/useFilteredProductQuery";
 import Spinner from "../spinner/Spinner";
 import Error from "../ui/Error";
-import P from "../ui/P";
 
 function ProductList({ curPage }) {
   const {
