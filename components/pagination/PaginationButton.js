@@ -2,8 +2,6 @@
 
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import Button from "../ui/Button";
-import { Suspense } from "react";
-import Spinner from "../spinner/Spinner";
 
 function PaginationButton({ num, curPage }) {
   const searchParams = useSearchParams();
@@ -17,15 +15,13 @@ function PaginationButton({ num, curPage }) {
   }
 
   return (
-    <Suspense fallback={<Spinner />}>
-      <Button
-        disabled={curPage === num}
-        type="secondary"
-        onClick={() => handleChangePage(num)}
-      >
-        {num}
-      </Button>
-    </Suspense>
+    <Button
+      disabled={curPage === num}
+      type="secondary"
+      onClick={() => handleChangePage(num)}
+    >
+      {num}
+    </Button>
   );
 }
 

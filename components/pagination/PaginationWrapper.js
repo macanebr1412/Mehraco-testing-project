@@ -1,4 +1,6 @@
+import { Suspense } from "react";
 import PaginationButton from "./PaginationButton";
+import Spinner from "../spinner/Spinner";
 // Baraye har page hadeaksar 4 adad product.
 export const PRODUCT_PER_PAGE = 4;
 
@@ -10,12 +12,13 @@ function PaginationWrapper({ products, curPage }) {
       {/* Ye arraye misazim ke map konim roosh vase list doros konim. */}
       {Array.from({ length: numOfPages }, (_, index) => index + 1).map(
         (num) => (
-          <PaginationButton
-            num={num}
-            key={num}
-            curPage={Number(curPage)}
-            numOfPages={numOfPages}
-          />
+          <Suspense key={num} fallback={<Spinner />}>
+            <PaginationButton
+              num={num}
+              curPage={Number(curPage)}
+              numOfPages={numOfPages}
+            />
+          </Suspense>
         )
       )}
     </div>
