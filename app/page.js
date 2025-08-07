@@ -1,6 +1,8 @@
 import FilterWrapper from "@/components/filtering/FilterWrapper";
-import ProductList from "@/components/products/ProductList";
 import TitleOfProducts from "@/components/products/TitleOfProducts";
+import dynamic from "next/dynamic";
+
+const ProductList = dynamic(() => import("@/components/products/ProductList"));
 
 // Chonke route be vaseteye searchParams dynamic hast pas niazi be revalidate nis
 // export const revalidate = X;
