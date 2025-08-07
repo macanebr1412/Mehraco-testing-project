@@ -1,6 +1,8 @@
 import FilterWrapper from "@/components/filtering/FilterWrapper";
 import TitleOfProducts from "@/components/products/TitleOfProducts";
+import Spinner from "@/components/spinner/Spinner";
 import dynamic from "next/dynamic";
+import { Suspense } from "react";
 
 const ProductList = dynamic(() => import("@/components/products/ProductList"));
 
@@ -13,7 +15,9 @@ function Page({ searchParams }) {
     <div>
       <TitleOfProducts />
       <FilterWrapper />
-      <ProductList curPage={curPage} />
+      <Suspense fallback={<Spinner />}>
+        <ProductList curPage={curPage} />
+      </Suspense>
     </div>
   );
 }
